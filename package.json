@@ -4,7 +4,11 @@
   "description": "个人工具类库",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --ext .js src"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cui-y/Utils.git"
@@ -19,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Cui-y/Utils/issues"
   },
-  "homepage": "https://github.com/Cui-y/Utils#readme"
+  "homepage": "https://github.com/Cui-y/Utils#readme",
+  "devDependencies": {
+    "pre-commit": "^1.2.2"
+  }
 }
