@@ -1,0 +1,23 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "个人工具类库",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cui-y/Utils.git"
+  },
+  "keywords": [
+    "utils",
+    "javascript",
+    "functions"
+  ],
+  "author": "cuiyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cui-y/Utils/issues"
+  },
+  "homepage": "https://github.com/Cui-y/Utils#readme"
+}
