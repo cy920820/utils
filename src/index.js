@@ -1,7 +1,9 @@
 import * as array from './Array'
+import * as number from './Number'
 
 let utils = {
-  array
+  array,
+  number
 }
 
 export default utils
