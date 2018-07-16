@@ -2,9 +2,11 @@
   "name": "utils",
   "version": "1.0.0",
   "description": "个人工具类库",
-  "main": "index.js",
+  "main": "lib/utils.js",
   "scripts": {
-    "lint": "eslint --ext .js src"
+    "lint": "eslint --ext .js src",
+    "test": "babel-node tests/test.js",
+    "build": "babel src -d lib -s"
   },
   "pre-commit": [
     "lint"
@@ -25,6 +27,8 @@
   },
   "homepage": "https://github.com/Cui-y/Utils#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
