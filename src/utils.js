@@ -1,13 +1,4 @@
 /**
- * Determines whether the passed value is an Array
- * @param {*} obj
- * @return {Boolean}
- */
-export function isArray (obj) {
-  return Array.isArray(obj)
-}
-
-/**
  * Obtain Integer Number Length
  * @param {*} num
  * @return {Number} length
@@ -40,4 +31,22 @@ export function unitConverter (num) {
   result.num = currentNum.toFixed(2)
   result.unit = currentUnit
   return result
+}
+
+/**
+ * Determines whether the passed value is an Array
+ * @param {*} obj
+ * @return {Boolean}
+ */
+export function isArray (obj) {
+  return Array.isArray(obj)
+}
+
+/**
+ * Get decimals digit
+ * @param {*} num
+ * @return {Number}
+ */
+export function getDECPOS (num) {
+  return Math.ceil(num) === num ? 0 : num.toString().split('.')[1].length
 }
