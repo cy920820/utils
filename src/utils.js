@@ -50,3 +50,12 @@ export function isArray (obj) {
 export function getDECPOS (num) {
   return Math.ceil(num) === num ? 0 : num.toString().split('.')[1].length
 }
+
+/**
+ * Determines whether the passed value is an Object
+ * @param {*} obj
+ * @return {Boolean}
+ */
+export function isObject (obj) {
+  return Object.prototype.toString.call(obj) === '[object Object]'
+}
