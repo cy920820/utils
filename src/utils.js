@@ -1,5 +1,5 @@
 /**
- * Obtain Integer Number Length
+ * 获取一个数的整数位数
  * @param {*} num
  * @return {Number} length
  */
@@ -13,7 +13,7 @@ export function getIntLength (num) {
 }
 
 /**
- * Money Unit Converter
+ * 金额单位转化
  * @param {*} num
  * @return {Number}
  */
@@ -34,7 +34,7 @@ export function unitConverter (num) {
 }
 
 /**
- * Determines whether the passed value is an Array
+ * 确定传递的值是否为数组
  * @param {*} obj
  * @return {Boolean}
  */
@@ -43,7 +43,7 @@ export function isArray (obj) {
 }
 
 /**
- * Get decimals digit
+ * 获取一个数的小数位数
  * @param {*} num
  * @return {Number}
  */
@@ -52,7 +52,7 @@ export function getDECPOS (num) {
 }
 
 /**
- * Determines whether the passed value is an Object
+ * 确定传递的值是否为对象
  * @param {*} obj
  * @return {Boolean}
  */
