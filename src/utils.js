@@ -1,6 +1,6 @@
 /**
- * 获取一个数的整数位数
- * @param {*} num
+ * @description 获取一个数的整数位数
+ * @param {*} num 传递的数字
  * @return {Number} length
  */
 export function getIntLength (num) {
@@ -13,8 +13,8 @@ export function getIntLength (num) {
 }
 
 /**
- * 金额单位转化
- * @param {*} num
+ * @description 金额单位转化
+ * @param {*} num 传递的金额
  * @return {Number}
  */
 export function unitConverter (num) {
@@ -34,8 +34,8 @@ export function unitConverter (num) {
 }
 
 /**
- * 确定传递的值是否为数组
- * @param {*} obj
+ * @description 确定传递的值是否为数组
+ * @param {*} obj 传递的值
  * @return {Boolean}
  */
 export function isArray (obj) {
@@ -43,8 +43,8 @@ export function isArray (obj) {
 }
 
 /**
- * 获取一个数的小数位数
- * @param {*} num
+ * @description 获取一个数的小数位数
+ * @param {*} num 传递的数字
  * @return {Number}
  */
 export function getDECPOS (num) {
@@ -52,10 +52,60 @@ export function getDECPOS (num) {
 }
 
 /**
- * 确定传递的值是否为对象
- * @param {*} obj
+ * @description 确定传递的值是否为对象
+ * @param {*} obj 传递的值
  * @return {Boolean}
  */
 export function isObject (obj) {
   return Object.prototype.toString.call(obj) === '[object Object]'
+}
+
+/**
+ * @description 判断要查询的数组中至少有一项包含在目标数组中
+ * @param {Array} target 目标数组
+ * @param {Array} arr 要查询的数组
+ * @return {Boolean}
+*/
+export function hasOneOf(target, arr) {
+  return target.some(_ => arr.indexOf(_) > -1)
+}
+
+/**
+ * @description 验证当前值是否存在验证列表中
+ * @param {String|Number} value 被验证的值
+ * @param {*} validList 验证列表
+ * @return {Boolean}
+*/
+export function oneOf(value, validList) {
+  return validList.some(_ => {
+    if (value === _) {
+      return true
+    }
+    return false
+  })
+}
+
+/**
+ * @description 数字前置补领（指定总长度）
+ * @param {String|Number} value 需要前置补零的数
+ * @param {Number} len 补零后的长度
+ * @return {Boolean}
+*/
+export function prefixInteger(value, len) {
+  return (Array(len).join(0) + value).slice(-len)
+}
+
+/**
+ * @description 获取浏览器名称
+ * @return {String}
+*/
+export function getExplorer() {
+  const ua = window.navigator.userAgent
+  let isExplorer = (exp) => {
+    return ua.indexOf(exp) > -1
+  }
+  if (isExplorer('MSIE')) return 'MSIE'
+  if (isExplorer('Chrome')) return 'Chrome'
+  if (isExplorer('Opera')) return 'Opera'
+  if (isExplorer('Safari')) return 'Safari'
 }
