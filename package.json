@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext .js src",
     "test": "babel-node tests/test.js",
-    "build": "rm -rf lib && babel src -d lib -s"
+    "build": "rm -rf lib && babel src/js -d lib -s"
   },
   "pre-commit": [
     "lint"
