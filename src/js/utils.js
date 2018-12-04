@@ -109,3 +109,19 @@ export function getExplorer() {
   if (isExplorer('Opera')) return 'Opera'
   if (isExplorer('Safari')) return 'Safari'
 }
+
+/**
+* @description 版本号比较
+* @param {String} 版本号v1
+* @param {String} 版本号v2
+* @return {Number} > 0 则代表v1 > v2
+*/
+
+export function compareVersion (v1, v2) {
+  let _v1 = v1.split('.')
+  let _v2 = v2.split('.')
+
+  let _c = _v1[0] - _v2[0]
+
+  return _c === 0 && v1 !== v2 ? compareVersion(_v1.slice(1).join('.'), _v2.slice(1).join('.')) : _c
+}
