@@ -1,7 +1,7 @@
 /**
  * @description 获取一个数的整数位数
  * @param {*} num 传递的数字
- * @return {Number} length
+ * @returns {Number} length
  */
 export function getIntLength (num) {
   num = '' + num
@@ -15,7 +15,7 @@ export function getIntLength (num) {
 /**
  * @description 金额单位转化
  * @param {*} num 传递的金额
- * @return {Number}
+ * @returns {Number}
  */
 export function unitConverter (num) {
   let units = ['元', '万元', '亿', '万亿']
@@ -36,7 +36,7 @@ export function unitConverter (num) {
 /**
  * @description 确定传递的值是否为数组
  * @param {*} obj 传递的值
- * @return {Boolean}
+ * @returns {Boolean}
  */
 export function isArray (obj) {
   return Array.isArray(obj)
@@ -64,7 +64,7 @@ export function isObject (obj) {
  * @description 判断要查询的数组中至少有一项包含在目标数组中
  * @param {Array} target 目标数组
  * @param {Array} arr 要查询的数组
- * @return {Boolean}
+ * @returns {Boolean}
 */
 export function hasOneOf(target, arr) {
   return target.some(_ => arr.indexOf(_) > -1)
@@ -74,7 +74,7 @@ export function hasOneOf(target, arr) {
  * @description 验证当前值是否存在验证列表中
  * @param {String|Number} value 被验证的值
  * @param {*} validList 验证列表
- * @return {Boolean}
+ * @returns {Boolean}
 */
 export function oneOf(value, validList) {
   return validList.some(_ => {
@@ -89,7 +89,7 @@ export function oneOf(value, validList) {
  * @description 数字前置补领（指定总长度）
  * @param {String|Number} value 需要前置补零的数
  * @param {Number} len 补零后的长度
- * @return {Boolean}
+ * @returns {Boolean}
 */
 export function prefixInteger(value, len) {
   return (Array(len).join(0) + value).slice(-len)
@@ -97,7 +97,7 @@ export function prefixInteger(value, len) {
 
 /**
  * @description 获取浏览器名称
- * @return {String}
+ * @returns {String}
 */
 export function getExplorer() {
   const ua = window.navigator.userAgent
@@ -124,4 +124,14 @@ export function compareVersion (v1, v2) {
   let _c = _v1[0] - _v2[0]
 
   return _c === 0 && v1 !== v2 ? compareVersion(_v1.slice(1).join('.'), _v2.slice(1).join('.')) : _c
+}
+
+/**
+ * @description 误差检查函数
+ * @param {Number} left
+ * @param {Number} right
+ * @returns {Boolean}
+ */
+export function withinErrorMargin (left, right) {
+  return Math.abs(left - right) < Number.EPSILON * Math.pow(2, 2)
 }
