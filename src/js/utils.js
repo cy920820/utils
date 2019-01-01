@@ -135,3 +135,13 @@ export function compareVersion (v1, v2) {
 export function withinErrorMargin (left, right) {
   return Math.abs(left - right) < Number.EPSILON * Math.pow(2, 2)
 }
+
+/**
+ * @description 判断是否是微信浏览器
+ * @returns {Boolean}
+ */
+
+export function isWeixinBrowser() {
+  var ua = navigator.userAgent.toLowerCase()
+  return (/micromessenger/.test(ua))
+}
