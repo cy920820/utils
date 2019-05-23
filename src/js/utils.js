@@ -143,7 +143,7 @@ export function withinErrorMargin (left, right) {
 
 export function isWeixinBrowser() {
   var ua = navigator.userAgent.toLowerCase()
-  return (/micromessenger/.test(ua))
+  return /micromessenger/.test(ua)
 }
 
 /**
