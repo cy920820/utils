@@ -145,3 +145,49 @@ export function isWeixinBrowser() {
   var ua = navigator.userAgent.toLowerCase()
   return (/micromessenger/.test(ua))
 }
+
+/**
+ * @description 防抖：防止高频事件执行
+ * @scene 表单提交
+ * @param {Function} fn
+ * @param {Number} delay
+ * @returns {Function}
+ *  */
+
+export function debounce (fn, delay = 500) {
+  if (typeof fn !== 'function') {
+    throw new TypeError('Type Error!')
+  }
+
+  let timer = null
+  return function () {
+    timer && clearTimeout(timer)
+    setTimeout(() => {
+      fn.apply(this, arguments)
+    }, delay)
+  }
+}
+
+/**
+* @description 节流：在规定时间内有且仅执行一次事件，降低事件执行频率
+* @scene 滚动条scroll事件, 触摸事件等
+* @param {Function} fn
+* @param {Number} delay
+* @returns {Function}
+*  */
+
+export function throttle (fn, delay = 500) {
+  if (typeof fn !== 'function') {
+    throw new TypeError('Type Error!')
+  }
+
+  let timer = null
+  return function () {
+    if (!timer) {
+      timer = setTimeout(() => {
+        fn.apply(this, arguments)
+        timer = null
+      }, delay)
+    }
+  }
+}
