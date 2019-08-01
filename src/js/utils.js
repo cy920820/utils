@@ -191,3 +191,46 @@ export function throttle (fn, delay = 500) {
     }
   }
 }
+
+/**
+ * @description 复制文本到剪贴板
+ * @param {String} text
+ */
+
+export function copyToClipboard(text) {
+  // 移动端iOS 会出现兼容问题，所以要分终端去考虑
+  let isIOS = navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)
+  let el = document.createElement('textarea')
+  el.value = text
+  el.style.position = 'absolute'
+  el.style.left = '-9999px'
+  el.setAttribute('readonly', '')
+
+  document.body.appendChild(el)
+
+  let selected = document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false
+
+  // 判断是否存在之前选择
+  if (isIOS) {
+    el.setSelectionRange(0, 9999)
+  } else {
+    el.select()
+  }
+
+  try {
+    if (document.execCommand('copy')) {
+      document.execCommand('copy')
+    } else {
+      throw Error('复制失败, 请手动复制')
+    }
+  } catch (error) {
+    throw Error(error)
+  }
+
+  document.body.removeChild(el)
+
+  if (selected) {
+    document.getSelection().removeAllRanges()
+    document.getSelection().addRange(selected)
+  }
+}
